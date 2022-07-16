@@ -1,14 +1,14 @@
 <template>
     <div>
-        
             <div class="menu">
                 <a v-for="(작명,i) in 메뉴들" :key="i">{{작명}}</a>
             </div>
 
             <div class="black-bg" v-if="모달창열렸니 == true">
               <div class="white-bg">
-                  <h4 @click="모달창열렸니 = false">상세페이지임</h4>
-                  <p>상세페이지 내용임</p>ss
+                  <img :src="원룸들[0].image" class="room-img">
+                 <h4>{{원룸들[0].title}}</h4>
+                 <p>{{원룸들[0].price}}</p>
               </div>
             </div>
 
@@ -34,10 +34,13 @@
 
     <script>
 
+        import data from './assets/oneroom.js'
+        
         export default {
             name: 'App',
             data() {
                 return {
+                    원룸들 : data,
                     모달창열렸니 : false,
                     신고수 : 0,
                     메뉴들: [
